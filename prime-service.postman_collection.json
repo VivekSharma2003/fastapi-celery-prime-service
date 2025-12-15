@@ -1,0 +1,83 @@
+{
+  "info": {
+    "name": "FastAPI Celery Prime Service",
+    "_postman_id": "11111111-2222-3333-4444-555555555555",
+    "description": "Postman collection for the FastAPI + Celery prime computation service.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Submit prime job",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"n\": 10\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/submit",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "submit"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get result by request_id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/result/{{request_id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "result",
+            "{{request_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Worker status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/worker-status",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "worker-status"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "request_id",
+      "value": ""
+    }
+  ]
+}
+
+
